@@ -3,13 +3,14 @@ import { View, Text, StyleSheet } from 'react-native'
 import CustomInputField from '../components/customInputField/customInputField'
 import CustomButton from '../components/customButton/CustomButton'
 
-const SignupPage = () => {
+const SignupPage = ({navigation}) => {
   const[val, setVal]=useState('');
 
   const handleProceed = ()=>{
   }
 
   const handleSignin = ()=>{
+    navigation.navigate('Signin')
   }
   return (
   <View style={styles.container}>

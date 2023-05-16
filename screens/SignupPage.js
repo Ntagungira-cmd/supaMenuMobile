@@ -69,26 +69,26 @@
     },
 
     microcontainer:{
-    alignItems:'center',
-    paddingTop: 15
+      alignItems:'center',
+      paddingTop: 15
     },
 
     text:{
-    fontSize:30,
-    fontWeight:900,
+      fontSize:30,
+      fontWeight:900,
     },
 
     span:{
-    fontSize:30,
-    fontWeight:900,
-    color: '#fc9403'
+      fontSize:30,
+      fontWeight:900,
+      color: '#fc9403'
     },
 
     subtitles:{
-    color: '#222582',
-    fontWeight: 800,
-    fontSize: 16,
-    marginBottom: 10
+      color: '#222582',
+      fontWeight: 800,
+      fontSize: 16,
+      marginBottom: 10
     },
 
     form:{

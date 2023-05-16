@@ -4,11 +4,13 @@ import CustomInputField from '../components/customInputField/customInputField'
 import CustomButton from '../components/customButton/CustomButton'
 
 const SignupPage = () => {
- const[val, setVal]=useState('');
- 
+  const[val, setVal]=useState('');
+
   const handleProceed = ()=>{
   }
 
+  const handleSignin = ()=>{
+  }
   return (
   <View style={styles.container}>
     <View style={styles.subcontainer}>
@@ -30,7 +32,7 @@ const SignupPage = () => {
             <View style={styles.line} />
           </View>
           <Text>If you have a PMG account</Text>
-          <CustomButton text="sign in" onPress={handleProceed}/>
+          <CustomButton text="sign in" onPress={handleSignin}/>
         </View>
       </View>
     </View>

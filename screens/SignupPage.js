@@ -1,6 +1,6 @@
 import React,{useState} from 'react'
 import { View, Text, StyleSheet } from 'react-native'
-import CustomInputField from '../components/customInputField/customInputField'
+import CustomInputField from '../components/customInputField/CustomInputField'
 import CustomButton from '../components/customButton/CustomButton'
 
 const SignupPage = ({navigation}) => {

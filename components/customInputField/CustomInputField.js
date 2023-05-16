@@ -19,10 +19,13 @@ const CustomInputField = ({ placeholder, icon, keyBoardType, value, secureTextEn
 
 const styles = StyleSheet.create({
   container: {
+    flexDirection: 'row',
+    alignItems: 'center',
     borderWidth: 1,
     borderColor: '#ccc',
     borderRadius: 7,
     paddingHorizontal: 10,
+    marginTop: 10,
   },
 
   icon: {

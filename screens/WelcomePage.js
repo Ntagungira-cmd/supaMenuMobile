@@ -6,7 +6,7 @@ const WelcomePage = ({navigation}) => {
   useEffect(() => {
     const timeout = setTimeout(() => {
       navigation.navigate('Signup');
-    }, 5000);
+    }, 2000);
 
     return () => {
       clearTimeout(timeout);

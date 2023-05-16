@@ -1,12 +1,42 @@
-  import React,{useState} from 'react'
+  import React,{useState,useReducer} from 'react'
   import { View, Text, StyleSheet } from 'react-native'
   import CustomInputField from '../components/customInputField/CustomInputField'
   import CustomButton from '../components/customButton/CustomButton'
 
+  const initialFormState={
+      names:"",
+      phone:"",
+      email:"",
+      password:""
+    }
+
   const SignupPage = ({navigation}) => {
-  const[val, setVal]=useState('');
-  
+    
+    const formReducer = (state, action)=>{
+      switch (action.type) {
+        case "ONCHANGE":
+          return{
+            ...state,
+            [action.field]:action.payload
+          }
+        default:
+          return state;
+      }
+    }
+
+    const [formState, dispatch] = useReducer(formReducer, initialFormState);
+    const [secureTextEntry, setSecureTextEntry] = useState(true);
+
+    const handleChange = (name, text) => {
+      dispatch({
+        type: "ONCHANGE",
+        field: name,
+        payload: text
+      });
+    };
+
     const handleProceed = ()=>{
+      console.log(formState)
     }
 
     const handlePress = ()=>{
@@ -23,10 +53,10 @@
             <Text>please fill in the information</Text>
           </View>
           <View style={styles.form}>
-            <CustomInputField placeholder="full name" icon="user" keyBoardType="default" value={val}/>
-            <CustomInputField placeholder="Enter number" icon="phone" keyBoardType="numeric" value={val}/>
-            <CustomInputField placeholder="enter email" icon="mail" keyBoardType="email-address" value={val}/>
-            <CustomInputField placeholder="password" icon="lock" keyBoardType="default" secureTextEntry={true} value={val}/>
+            <CustomInputField name="names" placeholder="full name" icon="user" keyBoardType="default" value={formState.names} onChange={(name, text)=>{handleChange(name,text)}}/>
+            <CustomInputField name="phone" placeholder="Enter number" icon="phone" keyBoardType="numeric" value={formState.phone} onChange={(name, text)=>{handleChange(name,text)}}/>
+            <CustomInputField name="email" placeholder="enter email" icon="mail" keyBoardType="email-address" value={formState.email} onChange={(name, text)=>{handleChange(name,text)}}/>
+            <CustomInputField name="password" placeholder="password" icon="lock" keyBoardType="default" secureTextEntry={secureTextEntry} value={formState.password} onChange={(name, text)=>{handleChange(name,text)}}/>
             <CustomButton text="Proceed" onPress={handleProceed}/>
             <View style={styles.linecontainer}>
               <View style={styles.line} />

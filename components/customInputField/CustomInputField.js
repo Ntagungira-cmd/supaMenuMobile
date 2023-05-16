@@ -2,7 +2,12 @@ import React from 'react';
 import { View, TextInput, StyleSheet } from 'react-native';
 import { AntDesign } from '@expo/vector-icons';
 
-const CustomInputField = ({ placeholder, icon, keyBoardType, value, secureTextEntry }) => {
+const CustomInputField = ({ name,placeholder, icon, keyBoardType, value, secureTextEntry, onChange }) => {
+  
+  const handleChange = (text)=>{
+    onChange(name, text)
+  }
+
   return (
     <View style={styles.container}>
       {icon && <AntDesign name={icon} style={styles.icon} />}
@@ -10,8 +15,10 @@ const CustomInputField = ({ placeholder, icon, keyBoardType, value, secureTextEn
         style={styles.input}
         placeholder={placeholder}
         keyboardType={keyBoardType!=null?keyBoardType:'default'}
-        secureTextEntry={true}
+        secureTextEntry={secureTextEntry}
         value={value}
+        name={name}
+        onChangeText={handleChange}
       />
     </View>
   );

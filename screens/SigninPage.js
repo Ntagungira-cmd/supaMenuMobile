@@ -2,6 +2,8 @@
   import { View, Text, StyleSheet } from 'react-native'
   import CustomInputField from '../components/customInputField/CustomInputField'
   import CustomButton from '../components/customButton/CustomButton'
+  import { TouchableOpacity } from 'react-native'
+  import { AntDesign } from '@expo/vector-icons';
 
   const initialFormState={
       email:"",
@@ -59,8 +61,18 @@
               <Text style={styles.linetext}>or</Text>
               <View style={styles.line} />
             </View>
-            <View><Text>Login With Google</Text></View>
-            <View><Text>Login With FaceBook</Text></View>
+            <View style={styles.oauth}>
+              <AntDesign name="google" style={styles.icon} />
+              <TouchableOpacity>
+                <Text style={styles.innertext}>Login With Google</Text>
+              </TouchableOpacity>
+            </View>
+            <View style={styles.oauth}>
+              <AntDesign name="facebook-square" style={styles.icon} />
+              <TouchableOpacity>
+                <Text style={styles.innertext}>Login With facebook</Text>
+              </TouchableOpacity> 
+            </View>
             <Text style={styles.span}>Forgot password?</Text>
             <Text style={styles.normaltext}>Don't have an account? <Text style={styles.span} onPress={handlePress}>Register</Text></Text>
           </View>
@@ -93,12 +105,14 @@
     minicontainer:{
       flex: 1,
       alignItems: 'center',
-      paddingTop: 15
+      paddingTop: 15,
+      width:'100%'
     },
 
     microcontainer:{
       alignItems:'center',
-      paddingTop: 15
+      paddingTop: 15,
+      width:'100%'
     },
 
     text:{
@@ -154,6 +168,24 @@
       color: '#ccc',
       fontSize:20
     },
+
+    oauth:{
+      flexDirection: 'row',
+      alignItems: 'center',
+      justifyContent: 'space-evenly',
+      width: '100%',
+      borderWidth: 1,
+      borderColor: '#ccc',
+      borderRadius: 3,
+      padding:10,
+      margin: 10,
+    
+    },
+
+    innertext:{
+      fontSize: 15,
+      fontWeight: 600,
+    }
 
   })
 

@@ -3,13 +3,13 @@ import { createStackNavigator } from '@react-navigation/stack';
 import SignupPage  from './screens/SignupPage';
 import SigninPage from './screens/SigninPage';
 import WelcomePage from './screens/WelcomePage';
+import ScanPage from './screens/ScanPage';
 
 const Stack = createStackNavigator();
 
 export default function App() {
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName="Welcome">
         <Stack.Screen 
           name="Welcome" 
           component={WelcomePage} 
@@ -25,7 +25,11 @@ export default function App() {
           component={SigninPage}
           options={{headerShown:false}}
         />
-      </Stack.Navigator>
+      <Stack.Screen
+        name='Scan'
+        component={ScanPage}
+        options={{headerShown:false}}
+      />
     </NavigationContainer>
   );
 }

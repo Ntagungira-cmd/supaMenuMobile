@@ -36,7 +36,7 @@
     };
 
     const handleProceed = ()=>{
-      console.log(formState)
+      navigation.navigate('Scan')
     }
 
     const handlePress = ()=>{
